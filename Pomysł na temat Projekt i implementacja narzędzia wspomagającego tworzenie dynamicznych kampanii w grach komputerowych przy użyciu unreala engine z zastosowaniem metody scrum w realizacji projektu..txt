@@ -1,0 +1,30 @@
+1. Czym jest dynamiczna kampania w grach.
+Dynamiczna kampania to system kampanii, który reaguje na decyzje i działania gracza, tworząc bardziej elastyczne i zróżnicowane doświadczenie niż tradycyjne, liniowe kampanie. Dynamiczne kampanie często są wykorzystywane w grach strategicznych, symulatorach wojskowych i niektórych RPG-ach, gdzie decyzje gracza mają bezpośredni wpływ na rozwój fabuły, cele misji i sytuację na polu bitwy.
+Cechy dynamicznej kampanii:
+Reaktywność:
+
+Świat gry reaguje na decyzje gracza, co prowadzi do różnych rezultatów w zależności od wyborów dokonanych przez gracza.
+Nieliniowość:
+
+Kampanie nie mają jednej ustalonej ścieżki, co oznacza, że mogą przebiegać różnie w zależności od działań gracza.
+Zmienne Cele:
+
+Cele misji mogą się zmieniać w trakcie gry, w zależności od sytuacji na polu bitwy i wcześniejszych decyzji gracza.
+Trwałość:
+
+Skutki działań gracza mają trwały wpływ na świat gry, co oznacza, że decyzje podjęte na początku kampanii mogą mieć dalekosiężne konsekwencje.
+
+2. Pomysły jak rozwiązać poprzez blueprinty:
+- *Można dodać osobne panele do wypowiedzi, z obrazami, tekstem i ogólnie z potrzebnymi ustawieniami do animacji.*
+- trzeba podzielić na 3 części: pierwsza część to część piśmiennicza, dodaję funkcje do pisania; drugie dodaje możliwość edytowania tego tak by robił takie rzeczy w bardziej kontrolowanej sekwencji; trzecie zrobić to w miejscu gdzie jest ogólnie dostępne dla wszystkich funkcji, nie tylko dla graczy.
+
+*Notatki*:
+18.07.2024
+Pomyślałem by robić notatki. Opisywać co nowego zrobiłem i w ogóle. Więc tak. Zacznijmy od tego że mój pomysł się zmienia. Chcę zrobić w h uniwersalny zestaw do automatycznego pisania tekstu nie zależnie co użytkownik postanowi zrobić. By tego dokonać, umieściłem w bazowym_widziecie (na razie nazwanym Base_widget_dialog), przykładowe obrazki i 3 teksty w obramowaniu obrazka, oraz w horizonatl box'ie by pogrupowałem je na lewy, prawy i środkowy tekst, a po lewej i po prawej stronie wstawiłem obrazki. Zdeklarowałem w zewnęcznej zmiennie odpowiednio, przeciwnik i player obrazek i player, przeciwnik i narrator tekst. W programie sterującym zdefiniowałem jak utworzyć i zniszczyć bazowego_widgeta z zachowaniem tego, co gdyby osoba używająca tego zapomniała odpowiednio zdefiniować wartości. Teraz zastanawiam się jak powinien być pisany tekst. Jakie wartości powinienem użyć, jakie sposoby powinienem zrobić by odpowiednio zaznaczać i odznaczać punkty: 
+-Na wartości, mam pomysł na dodanie oddzielnego enuma. Wiem że to pomysł ala dodania roboty projektantowi, ale nie do końca. Dzięki temu z góry będzie mógł mieć zdefiniowaną listę opcji, które wybrał gracz. 
+-Wartości do pisania jeszcze nie uwzględniłem, spróbuj zrobić funkcję, która po prostu w jednym momencie zmieni napis i a potem kontynuuje. Z tego wyjdziesz i co najwyżej później ulepszysz, co najwyżej dodaj by była wymywana z funkcji zeznęcznej, lub wywoływała funkcję zewnęczną delay na 0,3 by ograniczyć możliwe zepsucia.
+Zrób oddzielny widget, który będziesz dodawał do bazowego_widgetu przyciski do wyboru, niech funkcja tworząca je zapisuje w liście, oraz wykombinuj jak mają wykonać funkcję powrotną, jak mają być masowo tworzone. Spróbuj pomyśleć nad odwołaniem się do parenta i wywołanie funkcji, która będzie sprawdzała, czy przycisk nie będzie kliknięty. Niech będzie miało odpowiedni znacznik enuma i po tym jak się wywoła program wiedział, który przycisk został sprawdzony. Spróbuj użyć też do tego funkcji event_tick, dzięki temu w przyszłości będzie można zrobić licznik na podjęcie decyzji, oraz ogólną decyzję podjętą przez programistę.
+
+30.07.2024
+No to dzisiaj lekko ruszyłem z projektem. Jak na razie zaprojektowałem początek kodu do oznaczenia polu tekstowego. Jeszcze jestem świadkiem jak działa utworzenie widgetu z bazowej wersji, którą sam utworzyłem i jest interesujące jak to działa. Powinienem pobawić się tym więcej i może bym lepiej zaprojektował te funkcje itd... Jestem tak zmęczony że średnio myślę. Na razie:
+-Dokończ pisanie tekstu z dodawaniem zdjęć, a potem przetestuj po tym jak stworzysz podstawowy obiekt gracza itp...
